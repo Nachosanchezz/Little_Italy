@@ -1,0 +1,21 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}Menú - Little Italy{% endblock %}
+
+{% block content %}
+<h1>Menú de Pizzas</h1>
+<div class="menu">
+    {% for pizza in pizzas %}
+        <div class="pizza">
+            <h2>{{ pizza.name }}</h2>
+            <p>{{ pizza.description }}</p>
+            <p>Precio: ${{ pizza.price }}</p>
+            <ul>
+                {% for ingredient in pizza.ingredients.all %}
+                    <li>{{ ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
