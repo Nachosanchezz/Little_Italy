@@ -14,13 +14,14 @@ class Recipe(models.Model): # Info: https://developer.edamam.com/edamam-docs-rec
     
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
-    calories = models.FloatField()
-    fats = models.FloatField()
-    proteins = models.FloatField()
-    carbohydrates = models.FloatField()
+    calories = models.FloatField(default=0)
+    fats = models.FloatField(default=0)
+    proteins = models.FloatField(default=0)
+    carbohydrates = models.FloatField(default=0)
 
     def __str__(self):
         return self.name
+
 
 class Pizza(models.Model):
     name = models.CharField(max_length=100)
